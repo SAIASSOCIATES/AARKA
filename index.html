@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>AARKA Academy | Dehradun</title>
+    <title>AARKA Academy | Dehradun - Illuminate Minds, Inspire Futures</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     
     <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
@@ -15,11 +15,35 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 15px; overflow: hidden; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; border-radius: 50px; padding: 15px 25px; z-index: 1000; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.3s; }
-        .whatsapp-float:hover { transform: translateY(-5px); color: #fff; text-decoration: none; }
+        /* Framework & Navigation Styles */
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 15px; overflow: hidden; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.1); cursor: pointer; margin: 0 auto; max-width: 900px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; display: none; }
+        .video-poster { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url("https://i.ytimg.com/vi/f0-9CI97fCY/maxresdefault.jpg"); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; z-index: 5; }
+        .play-button { width: 68px; height: 48px; background-color: rgba(33, 33, 33, 0.8); border-radius: 12%; position: relative; transition: background-color 0.3s; }
+        .video-container:hover .play-button { background-color: #FF0000; }
+        .play-button::after { content: ""; position: absolute; border-style: solid; border-width: 10px 0 10px 20px; border-color: transparent transparent transparent white; top: 50%; left: 55%; transform: translate(-50%, -50%); }
+
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; border-radius: 50px; padding: 15px 25px; z-index: 1000; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         .top-bar { background: #00394f; color: white; font-size: 14px; }
+        
+        /* Section Specific Styles */
+        .value-pillar { text-align: center; padding: 25px; border-radius: 15px; background: #ffffff; transition: 0.3s; border-bottom: 5px solid #ff6600; height: 100%; }
+        .value-pillar:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .value-pillar i { font-size: 45px; color: #00394f; margin-bottom: 15px; display: block; }
+        
+        .founder-banner { background: linear-gradient(rgba(0, 57, 79, 0.9), rgba(0, 57, 79, 0.9)), url('img/about-2.jpg'); background-size: cover; background-position: center; color: white; border-radius: 15px; }
+
+        /* Scrolling Testimonials Styles */
+        .testimonial-slider { overflow: hidden; padding: 40px 0; background: #f8f9fa; white-space: nowrap; position: relative; }
+        .testimonial-track { display: inline-flex; animation: scroll 30s linear infinite; }
+        .testimonial-card { width: 350px; background: #fff; padding: 25px; border-radius: 10px; margin: 0 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 4px solid #ff6600; white-space: normal; vertical-align: top; }
+        .testimonial-card p { font-style: italic; color: #555; font-size: 14px; }
+        .testimonial-card h6 { color: #00394f; font-weight: bold; margin-top: 10px; }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
     </style>
 </head>
 
@@ -40,7 +64,7 @@
 
     <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-sm py-3 px-lg-5">
         <a href="index.html" class="navbar-brand">
-            <h1 class="m-0 text-secondary"><span class="text-primary">AARKA</span> Academy</h1>
+            <h1 class="m-0 text-secondary" style="font-family: 'Handlee', cursive;"><span class="text-primary">AARKA</span> Academy</h1>
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -48,9 +72,11 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav font-weight-bold mx-auto">
                 <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="#about" class="nav-item nav-link">About</a>
-                <a href="#disciplines" class="nav-item nav-link">5 Disciplines</a>
-                <a href="#gallery" class="nav-item nav-link">Gallery</a>
+                <a href="#story" class="nav-item nav-link">Our Story</a>
+                <a href="#philosophy" class="nav-item nav-link">Philosophy</a>
+                <a href="#pillars" class="nav-item nav-link">Value Pillars</a>
+                <a href="academics.html" class="nav-item nav-link">Academics</a>
+                <a href="admissions.html" class="nav-item nav-link">Admissions</a>
                 <a href="#location" class="nav-item nav-link">Contact</a>
             </div>
             <a href="https://wa.me/919808152948" class="btn btn-primary px-4">Enquire Now</a>
@@ -61,129 +87,196 @@
         <div class="row align-items-center px-3">
             <div class="col-lg-6 text-center text-lg-left" data-aos="fade-right">
                 <h4 class="text-white mb-4 mt-5 mt-lg-0">From Darkness to Light</h4>
-                <h1 class="display-3 font-weight-bold text-white">Illuminate Minds, Inspire Time</h1>
-                <p class="text-white mb-4">AARKA Academy provides a nurturing environment where every child's journey starts fresh with hope and excellence.</p>
-                <a href="#about" class="btn btn-secondary mt-1 py-3 px-5">Learn More</a>
+                <h1 class="display-3 font-weight-bold text-white">Illuminate Minds, Inspire Futures</h1>
+                <p class="text-white mb-4">Every child carries light within—education reveals it. At AARKA, we believe in new beginnings and the power of knowledge to dispel ignorance.</p>
+                <a href="#story" class="btn btn-secondary mt-1 py-3 px-5">Learn More</a>
             </div>
             <div class="col-lg-6 text-center" data-aos="zoom-in">
-                <img class="img-fluid mt-5" src="img/header.png" alt="Education Header">
+                <img class="img-fluid mt-5" src="img/logo.png" alt="AARKA Logo" style="max-height: 400px;">
             </div>
         </div>
     </div>
 
-    <div class="container-fluid pt-5">
-        <div class="container pb-3">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 pb-1" data-aos="fade-up" data-aos-delay="100">
-                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
-                        <i class="flaticon-050-fence h1 font-weight-normal text-primary mb-3"></i>
-                        <div class="pl-4">
-                            <h4>Safe Environment</h4>
-                            <p class="m-0">A secure foundation of learning, safety, and nurturing care.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 pb-1" data-aos="fade-up" data-aos-delay="200">
-                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
-                        <i class="flaticon-022-drum h1 font-weight-normal text-primary mb-3"></i>
-                        <div class="pl-4">
-                            <h4>Creative Play</h4>
-                            <p class="m-0">Music, arts, and play to unlock your child's highest potential.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 pb-1" data-aos="fade-up" data-aos-delay="300">
-                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
-                        <i class="flaticon-030-shoes h1 font-weight-normal text-primary mb-3"></i>
-                        <div class="pl-4">
-                            <h4>Physical Growth</h4>
-                            <p class="m-0">Structured sports activities to build leadership and teamwork.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid py-5" id="about">
+    <div class="container-fluid py-5" id="story">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5" data-aos="fade-right">
                     <img class="img-fluid rounded mb-4 mb-lg-0" src="img/about-1.jpg" alt="About Image">
                 </div>
                 <div class="col-lg-7" data-aos="fade-left">
-                    <p class="section-title pr-5"><span class="pr-2">About Our Academy</span></p>
-                    <h1 class="mb-4">Knowledge Dispelling Ignorance</h1>
-                    <p>At AARKA, the Rising Sun represents our philosophy. The half-circle base is our foundation of learning, supporting every student as they rise toward achievement and ambition.</p>
-                    <ul class="list-inline m-0">
-                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Concept-based learning</li>
-                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Emotional intelligence development</li>
-                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Parent-Teacher Partnership</li>
-                    </ul>
-                    <a href="https://wa.me/919808152948" class="btn btn-primary mt-2 py-2 px-4">Contact Us</a>
+                    <p class="section-title pr-5"><span class="pr-2">Our Story</span></p>
+                    <h1 class="mb-4">Where Light Becomes Legacy</h1>
+                    <p>Rooted under the <strong>Maisha Educational Foundation</strong>, AARKA Academy draws its soul from 'Maisha'—meaning life, growth, and divine vitality. We provide a strong foundation of stability, safety, and nurturing care.</p>
+                    <a href="https://wa.me/919808152948" class="btn btn-primary mt-2 py-2 px-4">Connect With Us</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid pt-5" id="gallery">
+    <div class="container-fluid py-5 bg-light" id="philosophy">
         <div class="container">
             <div class="text-center pb-2" data-aos="fade-up">
-                <p class="section-title px-5"><span class="px-2">Watch Us</span></p>
-                <h1 class="mb-4">Experience AARKA Life</h1>
+                <p class="section-title px-5"><span class="px-2">Our Philosophy</span></p>
+                <h1 class="mb-4">The Rising Sun Concept</h1>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <p>Our logo represents illumination through education. The Rising Sun symbolizes hope, new beginnings, and knowledge dispelling ignorance.</p>
+                    <a href="philosophy.html" class="btn btn-outline-primary px-4">Read Full Philosophy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid pt-5" id="pillars">
+        <div class="container pb-3">
+            <div class="text-center pb-2" data-aos="fade-up">
+                <p class="section-title px-5"><span class="px-2">Our Foundation</span></p>
+                <h1 class="mb-4">The 5 Pillars of Excellence</h1>
             </div>
             <div class="row">
-                <div class="col-lg-8 mb-5" data-aos="zoom-in">
-                    <div class="video-container shadow">
-                        <iframe src="https://www.youtube.com/embed/f0-9CI97fCY" frameborder="0" allowfullscreen></iframe>
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-4" data-aos="zoom-in">
+                    <div class="value-pillar">
+                        <i class="fa fa-lightbulb"></i>
+                        <h6>Illumination</h6>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-5" data-aos="fade-left">
-                    <div class="bg-secondary text-white p-4 rounded h-100 d-flex flex-column justify-content-center">
-                        <h3>Campus Highlights</h3>
-                        <p>Our curriculum focuses on communication, confidence, and foundational literacy.</p>
-                        <a href="https://formbuilder.ccavenue.com/live/icici-bank/maisha-educational-foundation" class="btn btn-light mt-2">Online Fee Payment</a>
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="value-pillar">
+                        <i class="fa fa-shield-alt"></i>
+                        <h6>Integrity</h6>
                     </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="value-pillar">
+                        <i class="fa fa-user-check"></i>
+                        <h6>Discipline</h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="value-pillar">
+                        <i class="fa fa-heart"></i>
+                        <h6>Compassion</h6>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-8 col-sm-12 mb-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="value-pillar" style="border-bottom-color: #00394f;">
+                        <i class="fa fa-star" style="color: #ff6600;"></i>
+                        <h6>Excellence</h6>
+                        <small>Progress over outcome</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="founder-banner p-5 text-center shadow" data-aos="fade-up">
+            <h2 class="text-white mb-4">A Message from Our Founders</h2>
+            <p class="lead text-white mb-4 italic">"Education is not the filling of minds, but the illumination of potential. We invite you to partner with us to raise thoughtful, capable, and kind human beings."</p>
+            <a href="leadership.html" class="btn btn-secondary px-5 py-2">Read More</a>
+        </div>
+    </div>
+
+    <div class="container-fluid py-5">
+        <div class="container text-center">
+            <div class="pb-2" data-aos="fade-up">
+                <p class="section-title px-5"><span class="px-2">Experience AARKA</span></p>
+                <h1 class="mb-4">Glimpse Into Our World</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 mb-5" data-aos="zoom-in">
+                    <div class="video-container shadow" id="videoBox">
+                        <div class="video-poster" onclick="startYoutubeVideo()">
+                            <div class="play-button"></div>
+                        </div>
+                        <iframe id="aarkaVideo" src="https://www.youtube.com/embed/f0-9CI97fCY?si=8z6-C-9n1Nf7uW7A&controls=1" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-5">
+        <div class="container text-center">
+            <div class="pb-2" data-aos="fade-up">
+                <p class="section-title px-5"><span class="px-2">Parent Reviews</span></p>
+                <h1 class="mb-4">What Parents Say</h1>
+            </div>
+        </div>
+        <div class="testimonial-slider">
+            <div class="testimonial-track">
+                <div class="testimonial-card">
+                    <p>"The focus on both academics and moral values at AARKA is truly impressive. My child has grown more confident and kind."</p>
+                    <h6>- Mrs. Sharma</h6>
+                </div>
+                <div class="testimonial-card">
+                    <p>"AARKA Academy provides a safe and nurturing environment. The teachers are dedicated to uncovering every child's potential."</p>
+                    <h6>- Mr. Rawat</h6>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I appreciate the 'Concept-Based Learning' approach. It makes complex topics easy for children to understand."</p>
+                    <h6>- Mrs. Gupta</h6>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The best school in Dehradun for holistic development. The campus and facilities are top-notch."</p>
+                    <h6>- Mr. Verma</h6>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The focus on both academics and moral values at AARKA is truly impressive. My child has grown more confident and kind."</p>
+                    <h6>- Mrs. Sharma</h6>
+                </div>
+                <div class="testimonial-card">
+                    <p>"AARKA Academy provides a safe and nurturing environment. The teachers are dedicated to uncovering every child's potential."</p>
+                    <h6>- Mr. Rawat</h6>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="container-fluid py-5" id="location">
-        <div class="container">
-            <div class="text-center pb-2" data-aos="fade-up">
+        <div class="container text-center">
+            <div class="pb-2" data-aos="fade-up">
                 <p class="section-title px-5"><span class="px-2">Visit Us</span></p>
                 <h1 class="mb-4">Find Us In Dehradun</h1>
             </div>
             <div class="row">
                 <div class="col-lg-12" data-aos="fade-up">
-                    <div class="shadow rounded overflow-hidden" style="height: 400px;">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.642544254245!2d77.9942354!3d30.275782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39092be326f2f29b%3A0xc34a179373980a3!2sKidzee%20Turner%20Road!5e0!3m2!1sen!2sin!4v1707000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="shadow rounded overflow-hidden" style="height: 450px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13782.221045752643!2d77.98336202142364!3d30.27825054000147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39092bdd7e8524c9%3A0x6b4f3aeb93baa524!2sKidzee%20Turner%20Road%7CTop%20Preschool%20in%20dehradun%7CBest%20for%20your%20child!5e0!3m2!1sen!2sin!4v1770128069949!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <a href="https://wa.me/919808152948?text=Hello%20Aarka%20Academy%2C%20I%20would%20like%20to%20know%20more%20about%20admissions." class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/919808152948" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp mr-2"></i> Admission Inquiry
     </a>
 
     <div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
         <div class="row pt-5">
             <div class="col-lg-4 col-md-6 mb-5">
-                <h3 class="text-primary mb-4">Get In Touch</h3>
+                <h3 class="text-primary mb-4" style="font-family: 'Handlee', cursive;">AARKA Academy</h3>
                 <p><i class="fa fa-map-marker-alt mr-2"></i>Lane No.C-20, Turner Road, Dehradun</p>
                 <p><i class="fa fa-phone-alt mr-2"></i>+91 9808152948</p>
                 <p><i class="fa fa-envelope mr-2"></i>aarkaacademy@gmail.com</p>
             </div>
             <div class="col-lg-4 col-md-6 mb-5">
-                <h3 class="text-primary mb-4">School Links</h3>
+                <h3 class="text-primary mb-4">Quick Links</h3>
                 <div class="d-flex flex-column">
-                    <a class="text-white mb-2" href="#about"><i class="fa fa-angle-right mr-2"></i>Our Philosophy</a>
-                    <a class="text-white mb-2" href="#gallery"><i class="fa fa-angle-right mr-2"></i>Gallery</a>
-                    <a class="text-white" href="https://formbuilder.ccavenue.com/live/icici-bank/maisha-educational-foundation"><i class="fa fa-angle-right mr-2"></i>Pay Fees Online</a>
+                    <a class="text-white mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                    <a class="text-white mb-2" href="#story"><i class="fa fa-angle-right mr-2"></i>Our Story</a>
+                    <a class="text-white mb-2" href="#philosophy"><i class="fa fa-angle-right mr-2"></i>Philosophy</a>
+                    <a class="text-white mb-2" href="#pillars"><i class="fa fa-angle-right mr-2"></i>Value Pillars</a>
+                    <a class="text-white mb-2" href="academics.html"><i class="fa fa-angle-right mr-2"></i>Academics</a>
+                    <a class="text-white mb-2" href="admissions.html"><i class="fa fa-angle-right mr-2"></i>Admissions</a>
+                    <a class="text-white" href="#location"><i class="fa fa-angle-right mr-2"></i>Contact</a>
                 </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">Payment Portal</h3>
+                <a class="btn btn-primary px-4" href="https://formbuilder.ccavenue.com/live/icici-bank/maisha-educational-foundation" target="_blank">Pay Fees Online</a>
             </div>
         </div>
     </div>
@@ -193,6 +286,16 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1200, once: true });
+        function startYoutubeVideo() {
+            var iframe = document.getElementById('aarkaVideo');
+            var poster = document.querySelector('.video-poster');
+            iframe.style.display = 'block';
+            poster.style.display = 'none';
+            var currentSrc = iframe.src;
+            if(!currentSrc.includes('autoplay=1')) {
+                iframe.src = currentSrc + "&autoplay=1"; 
+            }
+        }
     </script>
 </body>
 </html>
